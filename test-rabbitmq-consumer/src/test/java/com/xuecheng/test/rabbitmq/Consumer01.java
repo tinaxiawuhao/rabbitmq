@@ -42,7 +42,7 @@ public class Consumer01 {
          * 4、autoDelete 自动删除，队列不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）
          * 5、arguments 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
          */
-        channel.queueDeclare(QUEUE,true,false,false,null);
+        channel.queueDeclare(QUEUE,false,false,false,null);
 
         //实现消费方法
         DefaultConsumer defaultConsumer = new DefaultConsumer(channel){

@@ -14,9 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReceiveHandler {
 
+    //监听email队列
     @RabbitListener(queues = {RabbitmqConfig.QUEUE_INFORM_EMAIL})
-    public void send_email(String msg,Message message,Channel channel){
-        System.out.println("receive message is:"+msg);
+    public void receive_email(String msg,Message message,Channel channel){
+        System.out.println(msg);
     }
 
+    //监听sms队列
+    @RabbitListener(queues = {RabbitmqConfig.QUEUE_INFORM_SMS})
+    public void receive_sms(String msg,Message message,Channel channel){
+        System.out.println(msg);
+    }
 }

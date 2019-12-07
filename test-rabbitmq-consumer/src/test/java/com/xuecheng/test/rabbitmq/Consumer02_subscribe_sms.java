@@ -19,10 +19,10 @@ public class Consumer02_subscribe_sms {
     public static void main(String[] args) throws IOException, TimeoutException {
         //通过连接工厂创建新的连接和mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("127.0.0.1");
+        connectionFactory.setHost("47.101.71.236");
         connectionFactory.setPort(5672);//端口
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("admin");
+        connectionFactory.setPassword("admin");
         //设置虚拟机，一个mq服务可以设置多个虚拟机，每个虚拟机就相当于一个独立的mq
         connectionFactory.setVirtualHost("/");
 
@@ -39,7 +39,7 @@ public class Consumer02_subscribe_sms {
          * 4、autoDelete 自动删除，队列不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）
          * 5、arguments 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
          */
-        channel.queueDeclare(QUEUE_INFORM_SMS,true,false,false,null);
+        channel.queueDeclare(QUEUE_INFORM_SMS,false,false,false,null);
         //声明一个交换机
         //参数：String exchange, String type
         /**
