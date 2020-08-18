@@ -4,8 +4,8 @@ spring:
   application:
     name: test-rabbitmq-producer
   rabbitmq:
-    host: 47.101.71.236
+    host: localhost
     port: 5672
-    username: admin
-    password: admin
+    username: guest
+    password: guest
     virtualHost: /
